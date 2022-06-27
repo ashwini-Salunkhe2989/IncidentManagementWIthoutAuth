@@ -1,0 +1,495 @@
+{
+	"info": {
+		"_postman_id": "158572c3-c776-4fdd-aeea-3801fc22b6f8",
+		"name": "IncidentManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2280450"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/createIncident",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"JIRA1\",\n    \"statusId\": 1,\n    \"assignee\": \"ASHWINI\",\n    \"createdBy\": \"ASHWINI\",\n    \"createDate\":\"2022-06-20\",\n    \"updatedBy\": \"PRANAV\",\n    \"updateddate\":\"2022-06-20\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/createIncident",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"createIncident"
+					]
+				},
+				"description": "to create incident ticket for demo app"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/deleteIncident",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n"
+				},
+				"url": {
+					"raw": "http://localhost:8087/deleteIncident/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8087",
+					"path": [
+						"deleteIncident",
+						"4"
+					]
+				},
+				"description": "This will delete incident based on incidentid"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8088/getAllIncidentsReport",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/getAllIncidentsReport",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"getAllIncidentsReport"
+					]
+				},
+				"description": "This end point will give all details related incident present."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8088/getIncidentReport/5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/getIncidentReport/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"getIncidentReport",
+						"5"
+					]
+				},
+				"description": "This will give incident report for given id"
+			},
+			"response": []
+		},
+		{
+			"name": "GatewayURL-IncidentCreation",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.get(\"variable_key\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"strictSSL": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkZTRWV0Z3TWctNGpUOXJUZy1EWWF3Z0VtOVQwaXRfakNzNk51bnZEUUxBIn0.eyJleHAiOjE2NTU5OTU1NTUsImlhdCI6MTY1NTk5NTI1NSwianRpIjoiM2Y2NmRjOWQtNjNiOC00YjdlLTk2ZDctMzZiODFiMzkzNzhmIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo3MDgwL3JlYWxtcy9pbmNpZGVudG1hbmFnZW1lbnRmaW5sZWFwIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImFkYTZiN2ZmLTYzNzMtNDRkNS1iNmFlLTBmOTI4YmQzMjA2NyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImluY2lkZW50bWFuYWdlbWVudGNsaWVudCIsInNlc3Npb25fc3RhdGUiOiI5ZGRjYTBiYS1kM2I5LTRhOWQtOGM0Yy02ODgwNDc4MTAxMWUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA3MiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiaW5jaWRlbnRtYW5hZ2VtZW50Y2xpZW50cm9sZWFkbWluIiwiZGVmYXVsdC1yb2xlcy1pbmNpZGVudG1hbmFnZW1lbnRmaW5sZWFwIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiI5ZGRjYTBiYS1kM2I5LTRhOWQtOGM0Yy02ODgwNDc4MTAxMWUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJBc2h3aW5pIFNhbHVua2hlIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYXNod2luaSIsImdpdmVuX25hbWUiOiJBc2h3aW5pIiwiZmFtaWx5X25hbWUiOiJTYWx1bmtoZSIsImVtYWlsIjoiYXNod2luaTIwMTRAZ21haWwuY29tIn0.OvCgFkVzXbDCmX1yYkKiIfn7Skynhh1Byy2gnpDf-QeCy-uxNUb61qeJHXPT3SwUvLRWU6Y2Mu9Ih9prhr5q5vrNxjzVJo9FCIIjBjzZdUZnJ5G_gkBTpBroGNbySUybrtCbxL3mNz3tuGf6QMXn95ccH8RpfLqOx2bDiGQJhOt9uMdlvKircWkb39XXnn2KvlyLqdbCh-31-ItrR65ujJKhUhziibC349Hn6xeN2i6-jSooLbgdPbdXBH_Za6IQi3QoLbvr5gatcxYysV_QD5SqNZWQWwQNckBIcXvgHPlxZjb1u2maQgG5C3BJYZZm-WvsP5cTL4qAKfsRokJotw",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"JIRA1\",\n    \"statusId\": 1,\n    \"assignee\": \"ASHWINI\",\n    \"createdBy\": \"ASHWINI\",\n    \"createDate\":\"2022-06-20\",\n    \"updatedBy\": \"PRANAV\",\n    \"updateddate\":\"2022-06-20\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8072/INCIDENTCREATION/createIncident",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"INCIDENTCREATION",
+						"createIncident"
+					]
+				},
+				"description": "http://localhost:8072/INCIDENTCREATION/createIncident"
+			},
+			"response": []
+		},
+		{
+			"name": "keycloak-tokengeneration",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "ashwini",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "incidentmanagementclient",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "lqcNIDe2ZgBWFMz0d8dgOn91TKJCeX1P",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7080/realms/incidentmanagementfinleap/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"realms",
+						"incidentmanagementfinleap",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8090/updateIncident",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"incidentid\":8,\n    \"title\":\"JIRA2\",\n    \"statusId\": 1,\n    \"assignee\": \"pranav_update\",\n    \"createdBy\": \"pranav_update\",\n    \"createDate\":\"2022-06-20\",\n    \"updatedBy\": \"PRANAV\",\n    \"updateddate\":\"2022-06-20\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/updateIncident",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"updateIncident"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8087/deleteIncident",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"incidentid\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8087/deleteIncident",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8087",
+					"path": [
+						"deleteIncident"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GateWay-IncidentUpdation",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-userid",
+						"value": "pqrs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"incidentid\":19,\n    \"title\":\"JIRA4\",\n    \"statusId\": 1,\n    \"assignee\": \"ashwini\",\n    \"createdBy\": \"ashwini\",\n    \"createDate\":\"2022-06-20\",\n    \"updatedBy\": \"as\",\n    \"updateddate\":\"2022-06-20\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8072/INCIDENTUPDATION/updateIncident",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"INCIDENTUPDATION",
+						"updateIncident"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gateway-DeleteIncidentById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/INCIDENTDELETION/deleteIncident/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"INCIDENTDELETION",
+						"deleteIncident",
+						"20"
+					]
+				},
+				"description": "This will delete incident details by passed id"
+			},
+			"response": []
+		},
+		{
+			"name": "Gateway-GetIncidentDetailsById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/INCIDENTDETAILSLIST/getIncidentReport/18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"INCIDENTDETAILSLIST",
+						"getIncidentReport",
+						"18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gateway-GetAlIncidentDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/INCIDENTDETAILSLIST/getAllIncidentsReport",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"INCIDENTDETAILSLIST",
+						"getAllIncidentsReport"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gateway-GetIncidentDetailsByAssignee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/INCIDENTDETAILSLIST/getIncidentReportByAssignee/ASHWINI",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"INCIDENTDETAILSLIST",
+						"getIncidentReportByAssignee",
+						"ASHWINI"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gateway-UserManagementAddUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"test_user\",\n    \"password\":\"test1234\",\n    \"email\":\"test@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8072/INCIDENTUPDATION/addUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"INCIDENTUPDATION",
+						"addUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gateway-UpdateUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"test_user\",\n    \"password\":\"test12345\",\n    \"email\":\"test@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8072/INCIDENTUPDATION/updateuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"INCIDENTUPDATION",
+						"updateuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gateway-FindUserByUserId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/INCIDENTUPDATION/getuser/test_user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"INCIDENTUPDATION",
+						"getuser",
+						"test_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gateway-DeleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/INCIDENTUPDATION/deleteuser/test_user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"INCIDENTUPDATION",
+						"deleteuser",
+						"test_user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
